@@ -1,8 +1,7 @@
 class Reader
-    attr_reader :tokens
   
     def initialize(code)
-      @tokens = code.scan(/[()]|[A-Za-z0-9\._]+|'.*?'|".*?"|[+-]?[0-9]+\.?[0-9]?|[\!#\$%&*+,\-\.\/:;<=>\?@\[\]\^_`{\|}\~]/)
+      @tokens = code.scan(/[()]|[A-Za-z0-9\._]+|'.*?'|".*?"|[+-]?[0-9]+\.?[0-9]?|[\!#\$%&*+,\-\.\/:;<=>\?@\[\]\^_`{\|}\~]+/)
     end
   
     def read_char

@@ -1,5 +1,5 @@
 class Env < Hash
-  def initialize(params=[],args=[],outer={})
+  def initialize(params = [], args = [], outer = {})
     h = Hash[params.zip(args)]
     @outer = outer
     self.merge!(h)
@@ -36,5 +36,6 @@ $global_env = Env.new do {
   :< => ->(a, b) { a > b },
   :<= => ->(a, b) { a <= b },
   :'=' => ->(a, b) { a == b },
+  :list => ->(*lst) { [*lst] },
   :puts => ->(a) { puts a },
 } end
